@@ -51,9 +51,11 @@
     }
 
     function handlePlay(){
-        movesCounter++;
         const tappedPos = event.target.id;
-        if (gameIsActive && gameState[tappedPos] === constants.BLANK) {       
+        const islegalClick = gameState[tappedPos] === constants.BLANK
+        if(islegalClick)
+            movesCounter++;
+        if (gameIsActive && islegalClick) {       
             gameState[tappedPos] = activePlayer;
             event.target.innerText = draw[activePlayer];
             checkBoard();
@@ -63,6 +65,7 @@
     }
 
     function checkBoard(){
+        console.log(movesCounter);
         for(let winningPosition of winningPositions){
             if (gameState[winningPosition[0]] !==  constants.BLANK &&
                 gameState[winningPosition[0]] === gameState[winningPosition[1]] &&
