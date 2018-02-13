@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: dk-longreach;
+    src: url("../fonts/DK Longreach.otf");
+}
+@font-face {
+    font-family: DK Konditorei;
+    src: url("../fonts/DK Konditorei.otf");
+}
+body {
+    font-size:12px; 
+    font-family: dk-longreach, Sans-Serif;
+    background: url("../images/bg.png") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+header{
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    box-sizing: border-box;
+    background-color:black; 
+	text-align: center;
+	font-size:3em;
+	color:  #FFFFF0;
+	padding: 20px 0;
+}
+header span {
+    font-size: 2em;
+}
+header h1 {
+    font-weight:normal;
+    font-size: 1.5em;
+}
+.column {
+    flex:1;
+    display: flex;
+    flex-direction: column;
+}
+.circleCursur {
+    cursor: url('../images/cursurs/circle.cur'), pointer !important;
+}
+.column > div {
+  flex:1;
+  border: 2px solid #FFFFF0;
+  border-radius: 2px;
+  font-size: 5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .5s ease;
+}
+.column div:nth-of-type(1) {
+    border-top-color: transparent;
+}
+.column div:nth-of-type(3) {
+    border-bottom-color: transparent;
+}
+.column:nth-of-type(1) div {
+    border-left-color: transparent;
+}
+.column:nth-of-type(3) div {
+    border-right-color: transparent;
+}
+#game-board {
+    font-family: DK Konditorei, Sans-Serif;
+    width: 400px;
+    height: 400px;
+    margin: 40px auto;
+    background-size: cover;
+    color: #FFFFF0;
+    border-radius: 10px;
+    display: flex;
+    cursor: url('../images/cursurs/x.cur'), pointer;
+}
+#info {
+	width: 20%;
+	display: inline-block;	
+	font-size: 100%;
+}
+#logo {
+    display:flex;
+    align-items: center;
+}
+#logo span {
+    font-family: DK Konditorei, Sans-Serif;
+    font-size: 0.7em;
+} 
+
+#interface {
+    background-color: #FFFFF0;
+    text-align: center;
+    height: 30px;
+}
+#interface > button {
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bold;
+	background: #FFFFF0;
+	color:#2d3436;
+	border:none;
+	height: 100%;
+	letter-spacing: 1px;
+    transition: all 0.3s, color .1ms;
+    backface-visibility: hidden;
+    margin: 0 3px;
+	padding: 0 2px;
+	outline: none;
+}
+#interface > button:hover {
+	background-color:#3d3d3d;
+	color:#FFFFF0;
+    transform:scale(1.1);
+    border-radius: 7px;
+}
+
+@media (max-width: 600px) {
+	body{
+	  font-size:0.5em;
+    }
+    #game-board {
+        width: 250px;
+        height: 250px;
+    }
+}
+

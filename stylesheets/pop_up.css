@@ -1,0 +1,130 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:200,300,500,700);
+
+body {
+  background-color: #2e2e2e;
+}
+
+.flappy-dialog {
+  display: none;
+  width: 40em;
+  position: absolute;
+  left: calc(50% - 20em);
+  top: 150px;  
+  background-color: #FFFFF0;
+  border-radius: 25px;
+  text-align: center;
+  display: block;
+  overflow: hidden;
+  transform-origin: center center;
+  transition: transform 0.4s ease;
+}
+
+.flappy-dialog.hidden {
+  transform: rotateX(-90deg);
+}
+
+.flappy-dialog h2 {
+  color: #30336b;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  line-height: 3.5;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+}
+
+.flappy-dialog h1 {
+  color: #666666;  
+  font-family: 'Raleway', sans-serif;
+  font-size: 50px;
+  line-height: 1.8;
+  font-weight: 200;
+  margin: 0;
+  margin-top: 0.5em;
+  padding: 0;
+}
+
+.flappy-dialog h3 {
+  color: #888888;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 4em;
+  padding: 0;
+  width: 40%;
+}
+
+.flappy-dialog .flappy-dialog-buttons {
+  background-color: #2e2e2e;
+  overflow: hidden;
+  position: relative;
+  perspective: 500px;
+}
+
+.flappy-dialog button {
+  width:20%;
+  color: rgba(255, 255, 255, 0.95);
+  background-color: #30336b ;
+  border: none;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 3;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  padding: 0 2%;
+  transform-origin: 50% 0%;
+  transition: transform 0.75s cubic-bezier(0.5, 3, 0.65, 0.45) 0.3s;
+  cursor: pointer;
+  outline: none;
+}
+
+.flappy-dialog button + button {
+  transition-delay: 0.35s;
+}
+
+.flappy-dialog.hidden button {
+  transform: rotateX(-90deg);
+}
+
+.flappy-dialog button:hover {
+  background-color: #30336b;
+  transition: background-color: 0.15s ease 0s, transform 0.15s ease 0s;
+  transition-delay: 0s, 0s;
+  transform: rotateX(-20deg);
+}
+
+.flappy-dialog .left-flap,
+.flappy-dialog .right-flap
+{
+  background-color: #30336b;
+  border-bottom-left-radius: 25px;
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 30%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left:0;
+  transform-origin: 50% 0%;
+  transition: transform 0.75s cubic-bezier(0.5, 3, 0.65, 0.45) 0.25s;
+}
+
+.flappy-dialog .right-flap {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 25px;
+  left: auto;
+  right: 0;
+  transition-delay: 0.4s;
+}
+
+.flappy-dialog.hidden .left-flap,
+.flappy-dialog.hidden .right-flap
+{
+  transform: rotateX(-90deg);
+}

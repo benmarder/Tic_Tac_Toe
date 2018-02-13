@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="stylesheets/pop_up.css">
+    <link rel="stylesheet" href="stylesheets/main.css">
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+    <header>
+        <div id="player1">
+            <h5>Player 1</h5>
+            <span>0</span>
+        </div>
+        <div id="logo">
+            <h1>Tic <span>O</span> Tac <span>X</span> Toe</h1>
+        </div>
+        <div id="player2">
+            <h5>Player 2</h5>
+            <span>0</span>
+        </div>
+    </header>
+    <section id="interface">
+        <button id="new-game">NEW GAME</button><button id="reset-score">RESET SCORE</button>
+    </section>
+    <main id="game-board">
+        <div class="column">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="column">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="column">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </main>
+    <div class="flappy-dialog hidden">
+        <h2>Game Over</h2>
+        <h1></h1>
+        <h3>CONTINUE?</h3>
+        <div class="flappy-dialog-buttons">
+            <div class="left-flap"></div>
+            <button>Yes</button><button>No</button>
+            <div class="right-flap"></div>
+        </div>
+    </div>
+      
+      <script src="scripts/game.js"></script>
+</body>
+</html>
