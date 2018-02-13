@@ -2,9 +2,7 @@
    const constants = {
         PLAYER_1: 0,
         PLAYER_2: 1,
-        P_1_PLAY: 2,
-        P_2_PLAY: 3,
-        BLANK:    4,
+        BLANK:    3,
     }
     const draw = [
         "X",
@@ -14,7 +12,7 @@
    
     /*-----------------DOM elements-------------------------------------------- */
     const board             = document.querySelector("#game-board");
-    const elements          = document.querySelectorAll(".column > div");
+    const boardelements     = document.querySelectorAll(".column > div");
     const winnerDiv         = document.querySelector(".flappy-dialog");
     const winnerHeadline    = document.querySelector(".flappy-dialog>h1");
     const player1           = document.querySelector("#player1 > span");
@@ -26,8 +24,8 @@
     /*-------------------------------------------------------------------------- */
     let activePlayer;
     let gameIsActive;    
-    let gameState;
-    let movesCounter;
+    let gameState;      
+    let movesCounter;     //to handle a tie in the game
     let player1Score = 0;
     let player2Score = 0;
     addListeners();
@@ -44,9 +42,9 @@
         newGameButton.onclick = newGame;
         resetScoreButton.onclick = resetScore;
         //add listener for each cell on board.
-        for(let i=0;i<elements.length;i++){
-            elements[i].id = i;
-            elements[i].onclick = handlePlay;
+        for(let i=0 ; i < boardelements.length ; i++){
+            boardelements[i].id = i;
+            boardelements[i].onclick = handlePlay;
         }
     }
 
@@ -65,8 +63,8 @@
     }
 
     function checkBoard(){
-        console.log(movesCounter);
         for(let winningPosition of winningPositions){
+            /* if the game state contains a winning position */
             if (gameState[winningPosition[0]] !==  constants.BLANK &&
                 gameState[winningPosition[0]] === gameState[winningPosition[1]] &&
                 gameState[winningPosition[1]] === gameState[winningPosition[2]]){
@@ -82,13 +80,14 @@
         }
     }
     function newGame(){
+        /*clear board logic, and board UI  */
         const BLANK = constants.BLANK;
         gameState = [
             BLANK, BLANK, BLANK,
             BLANK, BLANK, BLANK,
             BLANK, BLANK, BLANK
         ];
-        for(let element of elements){
+        for(let element of boardelements){
             element.innerText = "";
         }
         activePlayer = constants.PLAYER_1;
